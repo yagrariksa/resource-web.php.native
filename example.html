@@ -23,18 +23,22 @@
       --transparant: #00000000;
       --text-white-inactive: #e2e2e2;
       --text-white: #f0f0f0;
+      --text-white-70: #f0f0f0cf;
     }
     * {
       font-family: "Poppins", sans-serif;
       /* background-color: var(--dark-blue); */
-      color: #f0f0f0;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+    body {
+      overflow-x: hidden;
+    }
 
-    h1 {
-      color: blue;
+    h1,
+    p {
+      color: var(--dark-blue);
     }
     button {
       color: var(--dark-blue);
@@ -54,6 +58,12 @@
       justify-content: space-between;
     }
 
+    /* set to fix */
+    header {
+      position: sticky;
+      top: 0;
+    }
+
     header div {
       display: flex;
       flex-direction: row;
@@ -71,7 +81,7 @@
     header button:hover {
       /* font-weight: 600; */
       /* text-decoration: underline; */
-      color: var(--text-white);
+      color: var(--yellow);
     }
 
     button#hero {
@@ -95,14 +105,124 @@
       height: 25px;
     }
 
-    body {
-      display: flex;
-      flex-direction: column;
+    .container {
+      margin: 0 auto;
     }
 
-    .container {
-      width: 1300px;
-      margin: 0 auto;
+    .section {
+      border: 1px solid black;
+      min-height: 65%;
+      padding: 12px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .section h1 {
+      text-transform: capitalize;
+      border: 1px solid red;
+    }
+
+    .section p {
+      text-align: center;
+      width: 50%;
+      border: 1px solid blue;
+    }
+
+    .section.inverted {
+      background-color: var(--dark-blue);
+    }
+
+    .section.inverted > * {
+      color: var(--text-white);
+    }
+
+    .card-container {
+      display: flex;
+      flex-direction: row;
+      gap: 48px;
+      margin-top: 32px;
+    }
+
+    .card {
+      /* padding: 8px; */
+      /* border: 1px solid var(--yellow2); */
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      transition: ease-out 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 150px;
+      height: 150px;
+      background-color: var(--yellow3);
+      object-fit: cover;
+      margin-bottom: 8px;
+    }
+
+    .card h5 {
+      font-weight: 500;
+      color: var(--text-white-70);
+    }
+
+    .card button {
+      background-color: var(--yellow3);
+      width: 100%;
+      padding: 4px;
+      margin-top: 16px;
+      transition: ease-out 0.3s;
+      font-weight: 600;
+    }
+
+    .card button:hover {
+      background-color: var(--yellow);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .category {
+      width: 128px;
+      height: 128px;
+      background-color: var(--yellow);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      /* border: 1px solid black; */
+      transition: ease-out 0.2s;
+    }
+
+    .category:hover {
+      cursor: pointer;
+      background-color: var(--yellow3);
+    }
+
+    .category img {
+      height: 50%;
+    }
+
+    .category span {
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    #listKategori {
+      padding-top: 64px;
+      padding-bottom: 64px;
     }
 
     @media screen and (max-width: 768px) {
@@ -115,57 +235,119 @@
       }
     }
 
-    @media screen and (max-width: 1024px) {
-        .container {
-            width: 1024px;
-            padding: 0 64px;
-        }
+    @media screen and (min-width: 1024px) {
+      .container {
+        width: 1024px;
+      }
     }
-
-    
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="left">
-        <button id="hero">
-          Warung <br />
-          Serba Ada
-        </button>
-        <button>Promo</button>
-        <button>Menu</button>
-        <button>Categories</button>
-      </div>
+  <header class="container">
+    <div class="left">
+      <button id="hero">
+        Warung <br />
+        Serba Ada
+      </button>
+      <button>Promo</button>
+      <button>Menu</button>
+      <button>Categories</button>
+    </div>
 
-      <div class="right">
-        <button>Cart</button>
-        <button>Login</button>
-        <button>Register</button>
-      </div>
-      <div id="hamburger">
-        <img
-          src="https://img.icons8.com/ios-filled/50/menu--v1.png"
-          alt="menu--v1"
-        />
-      </div>
-    </header>
+    <div class="right">
+      <button>Cart</button>
+      <button>Login</button>
+      <button>Register</button>
+    </div>
+    <div id="hamburger">
+      <img
+        src="https://img.icons8.com/ios-filled/50/menu--v1.png"
+        alt="menu--v1"
+      />
+    </div>
+  </header>
+
+  <div id="promos" class="container section">
+    <h1>highlight Promo</h1>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+      debitis numquam vero totam! Odio voluptatibus magni, consequuntur iusto
+      vel aliquid a id ex, nihil sequi quae harum sed modi ipsa?
+    </p>
   </div>
-  <div class="container">
-    <div id="promos">
-      <h1>highlight Promo</h1>
-    </div>
 
-    <div id="listMenu">
-      <h1>Our Favorite Menu</h1>
+  <div id="listMenu" class="container section inverted">
+    <h1>Our Favorite Menu</h1>
+    <div class="card-container">
+      <div class="card">
+        <img src="./soto.jpeg" alt="img" />
+        <h3>Menu Name</h3>
+        <h5>Price</h5>
+        <button>CTA</button>
+      </div>
+      <div class="card">
+        <img src="./soto.jpeg" alt="img" />
+        <h3>Menu Name</h3>
+        <h5>Price</h5>
+        <button>CTA</button>
+      </div>
+      <div class="card">
+        <img src="./soto.jpeg" alt="img" />
+        <h3>Menu Name</h3>
+        <h5>Price</h5>
+        <button>CTA</button>
+      </div>
     </div>
+  </div>
 
-    <div id="listKategori">
-      <h1>Categories</h1>
+  <div id="listKategori" class="container section">
+    <h1>Categories</h1>
+    <div class="gallery">
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
     </div>
+  </div>
 
-    <div id="testimoni">
-      <h1>What Our Customers Says?</h1>
-    </div>
+  <div id="testimoni" class="container section inverted">
+    <h1>What Our Customers Says?</h1>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+      debitis numquam vero totam! Odio voluptatibus magni, consequuntur iusto
+      vel aliquid a id ex, nihil sequi quae harum sed modi ipsa?≈
+    </p>
   </div>
 </body>
