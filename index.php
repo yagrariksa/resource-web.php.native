@@ -1,59 +1,98 @@
 <?php
-
-include("conn.php");
-
-// 3. query ke database
-$sql = "SELECT k.id as 'id' , k.nama , k.umur , b.nama as 'role'  FROM karyawan k 
-JOIN bagian b ON k.`role` = b.id 
-ORDER BY k.id";
-$result = $conn->query($sql);
-// while ($row = $result->fetch_assoc()) {
-//     echo "<br>";
-//     var_dump($row);
-// }
-
-// die();
-include("head.php");
+include("template/header.php");
 ?>
 
-<!-- 4. penyusunan website -->
-<h1>Hello World</h1>
+<body>
 
-<?php
-if (isset($_GET["message"])) {
-    echo "<h2>" . $_GET["message"] . " </h2>";
-}
-?>
+  <?php
+  include("template/navbar.php");
+  ?>
 
-<a href="/tambah.php">Tambah Data</a>
-<table>
-    <tr>
-        <th>No</th>
-        <th>Nama</th>
-        <th>Umur</th>
-        <th>Bagian</th>
-        <th>Action</th>
-    </tr>
+  <div id="promos" class="container section">
+    <h1>highlight Promo</h1>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+      debitis numquam vero totam! Odio voluptatibus magni, consequuntur iusto
+      vel aliquid a id ex, nihil sequi quae harum sed modi ipsa?
+    </p>
+  </div>
 
-    <?php
-    $no = 1;
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-    ?>
-            <tr>
-                <td><?= $no ?></td>
-                <td><?= $row["nama"] ?></td>
-                <td><?= $row["umur"] ?></td>
-                <td><?= $row["role"] ?></td>
-                <td>
-                    <button>Edit</button>
-                    <a href="/delete.php?id=<?= $row["id"] ?>">Delete</a>
-                </td>
-            </tr>
-    <?php
-            $no++;
-        }
-    }
-    $conn->close();
-    ?>
-</table>
+  <div id="listMenu" class="container section inverted">
+    <h1>Our Favorite Menu</h1>
+    <div class="card-container">
+      <div class="card card-menu">
+        <img src="./soto.jpeg" alt="img" />
+        <h3>Menu Name</h3>
+        <h5>Price</h5>
+        <button>CTA</button>
+      </div>
+      <div class="card card-menu">
+        <img src="./soto.jpeg" alt="img" />
+        <h3>Menu Name</h3>
+        <h5>Price</h5>
+        <button>CTA</button>
+      </div>
+      <div class="card card-menu">
+        <img src="./soto.jpeg" alt="img" />
+        <h3>Menu Name</h3>
+        <h5>Price</h5>
+        <button>CTA</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="listKategori" class="container section">
+    <h1>Categories</h1>
+    <div class="gallery">
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+      <div class="category">
+        <img src="./pizza.png" alt="" />
+        <span>fast food</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="testimoni" class="container section inverted">
+    <h1>What Our Customers Says?</h1>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+      debitis numquam vero totam! Odio voluptatibus magni, consequuntur iusto
+      vel aliquid a id ex, nihil sequi quae harum sed modi ipsa?≈
+    </p>
+  </div>
+
+  <?php
+  include("template/js.php");
+  ?>
+</body>

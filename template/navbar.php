@@ -10,9 +10,9 @@
     </div>
 
     <div class="right">
-        <button>Cart</button>
-        <button>Login</button>
-        <button>Register</button>
+        <button id="cart">Cart</button>
+        <button id="login">Login</button>
+        <button id="register">Register</button>
     </div>
     <div id="hamburger">
         <img src="https://img.icons8.com/ios-filled/50/menu--v1.png" alt="menu--v1" />

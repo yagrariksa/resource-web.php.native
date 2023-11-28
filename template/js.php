@@ -9,7 +9,19 @@
     })
 
     document.querySelector('#hero').addEventListener('click', () => {
-        window.location.assign('/example.php');
+        window.location.assign('/');
+    })
+
+    document.querySelector('#login').addEventListener('click', () => {
+        window.location.assign('/login.php');
+    })
+
+    document.querySelector('#register').addEventListener('click', () => {
+        window.location.assign('/register.php');
+    })
+
+    document.querySelector('#cart').addEventListener('click', () => {
+        window.location.assign('/cart.php');
     })
 
     document.querySelectorAll('.card-menu').forEach(card => {

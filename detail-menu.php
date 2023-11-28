@@ -112,6 +112,98 @@ include("template/header.php");
         </div>
     </div>
 
+    <style>
+        .pop-up-layer {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            /* background-color: #0000006b; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pop-up-layer.hidden {
+            display: none;
+        }
+
+        .pop-up {
+            background-color: white;
+            max-width: 50%;
+            height: auto;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
+            border-radius: 16px;
+        }
+
+        .pop-up h3 {
+            text-align: center;
+        }
+
+        .pop-up p {
+            margin: 16px 0;
+        }
+
+        .pop-up .btn-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .pop-up .btn-wrapper button {
+            width: 100%;
+            /* border: 1px solid black; */
+            padding: 8px;
+            background-color: var(--text-white-70);
+            border-radius: 8px;
+        }
+
+        button.agree {
+            color: green;
+        }
+
+        button.agree:hover {
+            color: white;
+            background-color: green;
+        }
+
+        button.disagree {
+            color: red;
+        }
+
+        button.disagree:hover {
+            color: white;
+            background-color: red;
+        }
+
+        .pop-up-layer .bg {
+            background-color: #0000006b;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
+    <div class="pop-up-layer hidden">
+        <div class="bg"></div>
+        <div class="pop-up">
+            <h3>Attention</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ad reiciendis mollitia sit adipisci repudiandae commodi ipsam repellendus aperiam deserunt.</p>
+            <div class="btn-wrapper">
+                <button class="agree">Yes</button>
+                <button class="disagree">No</button>
+            </div>
+        </div>
+    </div>
+
+
     <script>
         // JS DOM
         // Javascript Document Object Manipulation
@@ -150,6 +242,24 @@ include("template/header.php");
             if (counter == 0) {
                 toggleDisable(true)
             }
+        })
+
+        const popUpLayer = document.querySelector('.pop-up-layer');
+
+        const showPopUpLayer = (show) => {
+            if (show) {
+                popUpLayer.classList.remove("hidden")
+            } else {
+                popUpLayer.classList.add("hidden")
+            }
+        }
+
+        btnAddToCart.addEventListener('click', () => {
+            showPopUpLayer(true)
+        })
+
+        document.querySelector('.pop-up-layer .bg').addEventListener('click', () => {
+            showPopUpLayer(false)
         })
     </script>
     <?php
