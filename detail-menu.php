@@ -4,7 +4,7 @@ include("template/header.php");
 
 <style>
     #detail-menu {
-        background-color: var(--text-white-70);
+        background-color: var(--bg-grey);
     }
 
     div#detail-menu {
@@ -159,7 +159,7 @@ include("template/header.php");
             width: 100%;
             /* border: 1px solid black; */
             padding: 8px;
-            background-color: var(--text-white-70);
+            background-color: var(--bg-grey);
             border-radius: 8px;
         }
 

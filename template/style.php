@@ -14,6 +14,7 @@
         --text-white-inactive: #e2e2e2;
         --text-white: #f0f0f0;
         --text-white-70: #f0f0f0cf;
+        --bg-grey: #f3f3f3;
     }
 
     * {

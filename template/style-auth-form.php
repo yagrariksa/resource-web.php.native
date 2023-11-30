@@ -9,7 +9,7 @@
     }
 
     .wrapper {
-        background-color: var(--text-white-70);
+        background-color: var(--bg-grey);
         padding: 32px;
         display: flex;
         flex-direction: column;

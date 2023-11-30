@@ -9,7 +9,7 @@ include("template/header.php");
         column-gap: 16px;
         row-gap: 32px;
         padding: 48px;
-        background-color: var(--text-white-70);
+        background-color: var(--bg-grey);
     }
 
     .card {
