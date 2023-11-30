@@ -2,58 +2,32 @@
 
 include("conn.php");
 
-// 3. query ke database
-$sql = "SELECT k.id as 'id' , k.nama , k.umur , b.nama as 'role'  FROM karyawan k 
-JOIN bagian b ON k.`role` = b.id 
-ORDER BY k.id";
-$result = $conn->query($sql);
-// while ($row = $result->fetch_assoc()) {
-//     echo "<br>";
-//     var_dump($row);
-// }
+$conn = new KaryawanConn();
 
-// die();
+$result = $conn->getKaryawanWithRole();
+
 include("head.php");
 ?>
 
 <!-- 4. penyusunan website -->
-<h1>Hello World</h1>
+<h1>Rumah Makan Sukses Jaya</h1>
 
-<?php
-if (isset($_GET["message"])) {
-    echo "<h2>" . $_GET["message"] . " </h2>";
-}
-?>
 
-<a href="/tambah.php">Tambah Data</a>
-<table>
-    <tr>
-        <th>No</th>
-        <th>Nama</th>
-        <th>Umur</th>
-        <th>Bagian</th>
-        <th>Action</th>
-    </tr>
+<ul>
+    <li>
+        <a href="/role.php">Daftar Role</a>
+    </li>
+    <li>
+        <a href="/karyawan.php">Daftar Karyawan</a>
+    </li>
+    <li>
+        <a href="/menu.php">Daftar Menu</a>
+    </li>
+    <li>
+        <a href="/pesanan.php">Daftar Pesanan</a>
+    </li>
+    <li>
+        <a href="/customer.php">Daftar Customer</a>
+    </li>
 
-    <?php
-    $no = 1;
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-    ?>
-            <tr>
-                <td><?= $no ?></td>
-                <td><?= $row["nama"] ?></td>
-                <td><?= $row["umur"] ?></td>
-                <td><?= $row["role"] ?></td>
-                <td>
-                    <button>Edit</button>
-                    <a href="/delete.php?id=<?= $row["id"] ?>">Delete</a>
-                </td>
-            </tr>
-    <?php
-            $no++;
-        }
-    }
-    $conn->close();
-    ?>
-</table>
+</ul>
