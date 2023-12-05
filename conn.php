@@ -5,7 +5,7 @@ class Connection
 
     private $servername = "localhost:3306";
     private $username = "root";
-    private $password = "";
+    private $password = "rootr00t";
     private $db = "superprof_web";
 
     protected $conn;
