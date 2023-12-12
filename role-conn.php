@@ -57,6 +57,15 @@ class RoleConn extends Connection
         return true;
     }
 
+    private function getLastEntry()
+    {
+        $sql = "SELECT * FROM bagian b ORDER BY id DESC LIMIT 1;";
+
+        $result = $this->perform($sql);
+
+        return mysqli_fetch_assoc($result);
+    }
+
     public function createRole($data)
     {
         $sql = "INSERT INTO bagian
@@ -64,9 +73,11 @@ class RoleConn extends Connection
                 VALUES
                 (\"{$data["nama"]}\")
                 ";
-        // echo $sql;
-        // die();
         $this->perform($sql);
+
+        $row = $this->getLastEntry();
+
+        $this->createOrUpdateGajiFromRole($row["id"], $data["gaji"]);
     }
 
     public function getOne($id)
