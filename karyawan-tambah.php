@@ -1,5 +1,6 @@
 <?php
-include("conn.php");
+include("wrapper.php");
+
 
 if (isset($_POST["nama"]) && isset($_POST["umur"]) && isset($_POST["role"])) {
     $data = [

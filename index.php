@@ -1,15 +1,3 @@
-<?php
-
-include("conn.php");
-
-$conn = new KaryawanConn();
-
-$result = $conn->getKaryawanWithRole();
-
-include("head.php");
-?>
-
-<!-- 4. penyusunan website -->
 <h1>Rumah Makan Sukses Jaya</h1>
 
 

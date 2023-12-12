@@ -1,18 +1,7 @@
 <?php
 
-include("conn.php");
-
 class RoleConn extends Connection
 {
-
-    public function getRole()
-    {
-        $sql = "SELECT b.id, b.nama, g.pokok 
-                FROM bagian b
-                LEFT JOIN gaji g 
-                ON b.id=g.`role`;";
-        return $this->perform($sql);
-    }
 
     private function getGajiFromRole($id)
     {
@@ -37,6 +26,26 @@ class RoleConn extends Connection
         $this->perform($sql);
     }
 
+    private function getLastEntry()
+    {
+        $sql = "SELECT * FROM bagian b ORDER BY id DESC LIMIT 1;";
+
+        $result = $this->perform($sql);
+
+        return mysqli_fetch_assoc($result);
+    }
+
+    public function getRole()
+    {
+        $sql = "SELECT b.id, b.nama, g.pokok 
+                FROM bagian b
+                LEFT JOIN gaji g 
+                ON b.id=g.`role`;";
+        return $this->perform($sql);
+    }
+
+
+
     public function updateRolebyID($id, $data)
     {
         $this->createOrUpdateGajiFromRole($id, $data["gaji"]);
@@ -57,14 +66,7 @@ class RoleConn extends Connection
         return true;
     }
 
-    private function getLastEntry()
-    {
-        $sql = "SELECT * FROM bagian b ORDER BY id DESC LIMIT 1;";
 
-        $result = $this->perform($sql);
-
-        return mysqli_fetch_assoc($result);
-    }
 
     public function createRole($data)
     {

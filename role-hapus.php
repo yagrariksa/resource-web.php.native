@@ -1,6 +1,6 @@
 <?php
 
-include("role-conn.php");
+include("wrapper.php");
 
 if (isset($_GET["id"])) {
     $conn = new RoleConn();

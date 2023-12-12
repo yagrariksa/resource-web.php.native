@@ -1,6 +1,6 @@
 <?php
 
-include("conn.php");
+include("karyawan-conn.php");
 
 if (isset($_GET["id"])) {
     $conn = new KaryawanConn();
