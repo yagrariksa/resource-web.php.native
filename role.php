@@ -1,6 +1,6 @@
 <?php
 
-include("conn.php");
+include("role-conn.php");
 
 $conn = new RoleConn();
 
@@ -13,25 +13,11 @@ include("head.php");
     <tr>
         <th>No</th>
         <th>Bagian</th>
+        <th>Gaji</th>
         <th>Action</th>
     </tr>
 
     <?php
-    // var_dump($result);
-    // echo "<br>";
-    // var_dump($result->fetch_assoc());
-    // echo "<br>";
-    // var_dump($result->fetch_assoc());
-    // echo "<br>";
-    // var_dump($result->fetch_assoc());
-    // echo "<br>";
-    // var_dump($result->fetch_assoc());
-    // echo "<br>";
-    // var_dump($result->fetch_assoc());
-    // echo "<br>";
-    // var_dump($result->fetch_assoc());
-    // echo "<br>";
-    // var_dump($result->fetch_assoc());
     $no = 1;
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
@@ -39,6 +25,7 @@ include("head.php");
             <tr>
                 <td><?= $no ?></td>
                 <td><?= $row["nama"] ?></td>
+                <td><?= $row["pokok"] ?? "-" ?></td>
                 <td>
                     <a href="/role-edit.php?id=<?= $row["id"] ?>"><button>Edit</button></a>
                     <a href="/role-hapus.php?id=<?= $row["id"] ?>">Delete</a>

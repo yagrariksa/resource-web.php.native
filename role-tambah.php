@@ -1,18 +1,16 @@
 <?php
-include("conn.php");
+include("role-conn.php");
 
 if (isset($_POST["nama"])) {
     $data = [
         "nama" => $_POST["nama"],
     ];
-    $conn = new RoleConn();
 
     $conn->createRole($data);
     header("Location: role.php?message=SuccessDelete");
     die();
 }
 
-$conn = new RoleConn();
 
 ?>
 

@@ -5,8 +5,8 @@ class Connection
 
     private $servername = "localhost:3306";
     private $username = "root";
-    private $password = "";
-    private $db = "rm_rumah_kenyang";
+    private $password = "rootr00t";
+    private $db = "superprof_web";
 
     protected $conn;
 
@@ -72,61 +72,7 @@ class KaryawanConn extends Connection
                 VALUES
                 (\"{$data["nama"]}\", {$data["umur"]}, {$data["role"]})
                 ";
-        // echo $sql;
-        // die();
         $this->perform($sql);
-    }
-}
-
-class RoleConn extends Connection
-{
-
-    public function getRole()
-    {
-        $sql = "SELECT
-
-                * FROM bagian";
-        return $this->perform($sql);
-    }
-
-    public function updateRolebyID($id, $data)
-    {
-        $sql = "UPDATE bagian
-                SET nama = \"{$data["nama"]}\"
-                where id=" . $id;
-        $this->perform($sql);
-        return true;
-    }
-
-    public function deleteRoleWithId($id)
-    {
-        $sql = "DELETE 
-                    FROM bagian
-                    WHERE id=" . $id;
-        $this->perform($sql);
-        return true;
-    }
-
-    public function createRole($data)
-    {
-        $sql = "INSERT INTO bagian
-                (nama)
-                VALUES
-                (\"{$data["nama"]}\")
-                ";
-        // echo $sql;
-        // die();
-        $this->perform($sql);
-    }
-
-    public function getOne($id){
-
-        $sql = "SELECT nama FROM bagian where  id=". $id;
-        $result = $this->perform($sql);
-        
-        $row = $result->fetch_assoc();
-        
-        return $row;
     }
 }
 
@@ -231,3 +177,5 @@ class PelangganConn extends Connection
         return $row;
     }
 }
+
+?>
