@@ -50,6 +50,17 @@ class MenuConn extends Connection
         return $this->perform($sql);
     }
 
+    public function getMenuBy($id)
+    {
+        $sql = "SELECT
+                * FROM menu
+                WHERE id={$id}
+                ";
+        $result = $this->perform($sql);
+
+        return mysqli_fetch_assoc($result);
+    }
+
     public function updateMenubyID($id, $data)
     {
         $sql = "UPDATE menu
